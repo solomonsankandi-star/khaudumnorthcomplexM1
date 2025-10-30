@@ -4,11 +4,7 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     // Attempt to connect to MongoDB using the URI from our environment variables
-    const conn = await mongoose.connect(process.env.MONGODB_URI, {
-      // These options are recommended by Mongoose to avoid deprecation warnings
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-    });
+    const conn = await mongoose.connect(process.env.MONGODB_URI);
 
     // If the connection is successful, log a confirmation message to the console
     console.log(`Successfully connected to MongoDB: ${conn.connection.host}`);
